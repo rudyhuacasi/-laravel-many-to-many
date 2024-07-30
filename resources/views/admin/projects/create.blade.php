@@ -38,12 +38,25 @@
             <select name="type_id" id="type_id" class="form-control">
                 <option value="">Select Type</option>
                 @foreach ($types as $type)
-                <option value="{{ $type->id }}" >
+                <option value="{{ $type->id }}">
                     {{ $type->title }}
                 </option>
                 @endforeach
             </select>
         </div>
+
+        <div class="mb-3">
+            <label for="technologies" class="form-label">Technologies</label>
+            <div>
+                @foreach ($technologies as $technology)
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="technologies[]" id="technology-{{$technology->id}}" value="{{$technology->id}}">
+                    <label class="form-check-label" for="technology-{{$technology->id}}">{{$technology->title}}</label>
+                </div>
+                @endforeach
+            </div>
+        </div>
+
         <button class="btn btn-primary">Crea nuovo project</button>
     </form>
 

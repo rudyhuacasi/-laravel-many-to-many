@@ -23,5 +23,11 @@ class Project extends Model
     {
         return $this->belongsToMany(Technology::class);
     }
+    protected static function booted()
+    {
+        static::deleting(function ($project) {
+            $project->technologies()->detach();
+        });
+    }
 
 }

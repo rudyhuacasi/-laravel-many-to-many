@@ -39,6 +39,18 @@
                 @endforeach
             </select>
         </div>
+        <div class="mb-3">
+            <label for="technologies" class="form-label">Technologies</label>
+            <div>
+                @foreach ($technologies as $technology)
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="technologies[]" id="technology_{{$technology->id}}" value="{{$technology->id}}" @if(in_array($technology->id, old('technologies', $project->technologies->pluck('id')->toArray()))) checked @endif>
+                    <label class="form-check-label" for="technology_{{$technology->id}}">{{$technology->title}}</label>
+                </div>
+                @endforeach
+            </div>
+        </div>
+
         <button class=" btn btn-primary">Aggiorn post</button>
     </form>
 
