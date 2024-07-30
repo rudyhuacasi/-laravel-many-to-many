@@ -8,6 +8,14 @@
 
     <hr>
     <p><strong>Type:</strong>{{$project->type?->title?: 'Type non riconosciuta'}}</p>
+    <hr>
+    <h3>Tecnology:</h3>
+    <ul>
+        @foreach($project->technologies as $technology)
+        <li>{{ $technology->title }}</li>
+        @endforeach
+    </ul>
+
 
     <a href="{{route('admin.projects.index')}}" class="btn btn-success">torna alla lista dei project</a>
 
